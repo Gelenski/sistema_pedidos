@@ -18,7 +18,7 @@ public class Cartao implements FormaPagamento{
     }
     @Override
     public ResultadoPagamento pagar(double v) {
-        System.out.println("Processando cartão final " + numero.substring(numero.length() - 4));
+        System.out.println("Processando cartão final " + numero.substring(Math.max(0, numero.length() - 4)));
         return new ResultadoPagamento(true, "AUTH-CARTAO");
     }
 }

@@ -29,4 +29,10 @@ class CartaoTest {
         assertTrue(resultado.isAprovado());
         assertEquals("AUTH-CARTAO", resultado.getCodigo());
     }
+
+    @Test
+    void pagarComNumeroCurtoNaoLancaExcecao() {
+        assertTrue(new Cartao("12", 1, 0.1).pagar(110.0).isAprovado());
+        assertTrue(new Cartao("", 1, 0.1).pagar(110.0).isAprovado());
+    }
 }
